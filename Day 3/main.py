@@ -7,7 +7,6 @@ with open(r"C:\Users\agapo\Documents\University\Year 1\Module 2\Advent of Code\D
 
 sum = 0
 same = ""
-index = 0
 low = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
 upper = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
 
@@ -22,4 +21,28 @@ for i in file.splitlines():
     elif same in upper:
         sum += upper.index(same) + 27
 
-print(sum)
+print("Part 1: " + str(sum))
+
+sum = 0
+counter = 0
+lines = []
+
+for i in file.splitlines():
+    if counter == 3:
+        print(lines)
+        same = set.intersection(*map(set,lines))
+        final = ''.join(same)
+
+        if final in low:
+            sum += low.index(final) + 1
+        elif final in upper:
+            sum += upper.index(final) + 27
+        lines = []   
+        lines.append(str(i))
+        counter = 1
+    else:
+        lines.append(str(i))
+        print(i)
+        counter += 1
+
+print("Part 2: " + str(sum))
