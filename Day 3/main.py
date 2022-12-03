@@ -4,7 +4,6 @@ with open(r"C:\Users\agapo\Documents\University\Year 1\Module 2\Advent of Code\D
     file = f.read()
 
 #Part 1
-
 sum = 0
 same = ""
 low = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
@@ -23,13 +22,13 @@ for i in file.splitlines():
 
 print("Part 1: " + str(sum))
 
+#Part 2
 sum = 0
 counter = 0
 lines = []
 
 for i in file.splitlines():
     if counter == 3:
-        print(lines)
         same = set.intersection(*map(set,lines))
         final = ''.join(same)
 
